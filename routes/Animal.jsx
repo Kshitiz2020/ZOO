@@ -1,4 +1,4 @@
-import Card from "../src/Card";
+import Card from "../Components/Card";
 
 const Animals = ({ animalData, search, removeHandler, likesHandler }) => {
   return (

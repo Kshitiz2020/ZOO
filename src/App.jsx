@@ -9,7 +9,7 @@ import About from "../routes/About";
 import { animals, birds } from "./animalsLists";
 import ErrorPage from "../routes/Error-page";
 import Root from "../routes/Root";
-import Card from "./Card";
+import Card from "../Components/Card";
 
 const App = () => {
   const [animalData, setAnimals] = useState(animals);

@@ -1,5 +1,3 @@
-import image from "./assets/butterfly.jpg";
-
 const Card = ({
   name,
   likes,
