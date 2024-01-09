@@ -1,5 +1,5 @@
 const Footer = ({ copy }) => {
-  return <footer>{copy}</footer>;
+  return <footer className="footer">{copy}</footer>;
 };
 
 export default Footer;

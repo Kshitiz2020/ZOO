@@ -110,11 +110,11 @@ const App = () => {
       ],
     },
   ]);
-  const copy = "Thanks for visiting ZOO! Have a Nice Day";
+
   return (
     <>
-      <RouterProvider router={router}>
-        {/* <input type="text" placeholder="Search" onChange={searchHandler} />
+      <RouterProvider router={router} />
+      {/* <input type="text" placeholder="Search" onChange={searchHandler} />
         <Header name="Welcome To ZOO" />
         <main>
           <div className="reactions"></div>
@@ -122,7 +122,7 @@ const App = () => {
         </main>
         <Footer copy="Thanks for visiting ZOO! Have a Nice Day" /> }
         <Footer copy={copy} /> */}
-      </RouterProvider>
+      <Footer copy="Thanks for visiting ZOO! Have a Nice Day" />
     </>
   );
 };

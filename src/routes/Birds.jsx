@@ -8,12 +8,16 @@ const Birds = ({
 }) => {
   return (
     <>
-      <input
-        type="text"
-        placeholder="Search"
-        value={search}
-        onChange={(e) => searchHandler(e.target.value)}
-      />
+      <h1 className="heading">Birds</h1>
+      <div className="searchBar">
+        <input
+          className="searchBar"
+          type="text"
+          placeholder="Search"
+          value={search}
+          onChange={searchHandler}
+        />
+      </div>
       <div className="birdsMap">
         {birdList
           .filter((bird) =>
