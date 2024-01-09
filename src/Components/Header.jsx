@@ -7,10 +7,10 @@ const Header = (props) => {
       <div className="navbar">
         <ul>
           <li>
-            <NavLink to="/">HOME</NavLink>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <NavLink to="/animal">Animals</NavLink>
+            <NavLink to="/animals">Animals</NavLink>
           </li>
           <li>
             <NavLink to="/birds">Birds</NavLink>
@@ -20,7 +20,6 @@ const Header = (props) => {
           </li>
         </ul>
       </div>
-      <Home />
     </header>
   );
 };

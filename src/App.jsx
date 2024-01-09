@@ -1,15 +1,18 @@
 import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Header from "../Components/Header";
-import Footer from "../Components/Footer";
-import Home from "../routes/Home";
-import Animals from "../routes/Animal";
-import Birds from "../routes/Birds";
-import About from "../routes/About";
+import Header from "./Components/Header";
+import Footer from "./Components/Footer";
+import Home from "./routes/Home";
+import Animals from "./routes/Animal";
+import Birds from "./routes/Birds";
+import About from "./routes/About";
 import { animals, birds } from "./animalsLists";
-import ErrorPage from "../routes/Error-page";
-import Root from "../routes/Root";
-import Card from "../Components/Card";
+import ErrorPage from "./routes/Error-page";
+import Root from "./routes/Root";
+import Card from "./Components/Card";
+
+import "./CSS/Cards.css";
+import "./CSS/index.css";
 
 const App = () => {
   const [animalData, setAnimals] = useState(animals);
@@ -31,11 +34,12 @@ const App = () => {
   };
 
   const removeBirdsHandler = (name) => {
-    const updatedArray = birdList.filter((bird) => bird.name !== name);
-    setBirds(updatedArray);
+    const birdsUpdatedArray = birdList.filter((bird) => bird.name !== name);
+    setBirds(birdsUpdatedArray);
   };
 
   const likesHandler = (name, action) => {
+    // check is it bird or animal and do if statement for each
     const updatedArray = animalData.map((animal) => {
       if (animal.name === name) {
         if (action === "increase") {
@@ -48,6 +52,22 @@ const App = () => {
       }
     });
     setAnimals(updatedArray);
+    //setBirds(updatedArray);
+  };
+
+  const birdsLikesHandler = (name, action) => {
+    // check is it bird or animal and do if statement for each
+    const updatedArray = birdList.map((bird) => {
+      if (bird.name === name) {
+        if (action === "increase") {
+          return { ...bird, likes: bird.likes + 1 };
+        } else {
+          return { ...bird, likes: bird.likes - 1 };
+        }
+      } else {
+        return bird;
+      }
+    });
     setBirds(updatedArray);
   };
 
@@ -65,7 +85,9 @@ const App = () => {
             <Animals
               searchHandler={searchHandler}
               removeHandler={removeHandler}
+              likesHandler={likesHandler}
               search={search}
+              animalData={animalData}
             />
           ),
         },
@@ -75,7 +97,9 @@ const App = () => {
             <Birds
               searchHandler={searchHandler}
               removeHandler={removeHandler}
+              birdsLikesHandler={birdsLikesHandler}
               search={search}
+              birdList={birdList}
             />
           ),
         },
@@ -86,17 +110,19 @@ const App = () => {
       ],
     },
   ]);
-
+  const copy = "Thanks for visiting ZOO! Have a Nice Day";
   return (
     <>
-      <input type="text" placeholder="Search" onChange={searchHandler} />
-      <Header name="Welcome To ZOO" />
-      <main>
-        <div className="reactions"></div>
-        <Card addLikesHandler={likesHandler} />
-      </main>
-      <RouterProvider router={router} />
-      <Footer copy="Thanks for visiting ZOO! Have a Nice Day" />
+      <RouterProvider router={router}>
+        {/* <input type="text" placeholder="Search" onChange={searchHandler} />
+        <Header name="Welcome To ZOO" />
+        <main>
+          <div className="reactions"></div>
+          <Card addLikesHandler={likesHandler} />
+        </main>
+        <Footer copy="Thanks for visiting ZOO! Have a Nice Day" /> }
+        <Footer copy={copy} /> */}
+      </RouterProvider>
     </>
   );
 };

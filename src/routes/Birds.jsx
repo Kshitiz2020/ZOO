@@ -1,7 +1,19 @@
 import Card from "../Components/Card";
-const Birds = ({ birdList, search, removeHandler, likesHandler }) => {
+const Birds = ({
+  birdList,
+  search,
+  removeHandler,
+  birdsLikesHandler,
+  searchHandler,
+}) => {
   return (
     <>
+      <input
+        type="text"
+        placeholder="Search"
+        value={search}
+        onChange={(e) => searchHandler(e.target.value)}
+      />
       <div className="birdsMap">
         {birdList
           .filter((bird) =>
@@ -12,11 +24,12 @@ const Birds = ({ birdList, search, removeHandler, likesHandler }) => {
               key={bird.name}
               {...bird}
               removeHandler={() => removeHandler(bird.name)}
-              removeLikesHandler={() => likesHandler(bird.name, "decrease")}
-              addLikesHandler={() => likesHandler(bird.name, "increase")}
+              removeLikesHandler={() =>
+                birdsLikesHandler(bird.name, "decrease")
+              }
+              addLikesHandler={() => birdsLikesHandler(bird.name, "increase")}
             />
           ))}
-        <h1></h1>
       </div>
     </>
   );
