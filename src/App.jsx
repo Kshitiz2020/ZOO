@@ -78,7 +78,7 @@ const App = () => {
       element: <Root />,
       errorElement: <ErrorPage />,
       children: [
-        { path: "/", element: <Home searchHandler={searchHandler} /> },
+        { path: "/", element: <Home /* searchHandler={searchHandler} */ /> },
         {
           path: "/animals",
           element: (

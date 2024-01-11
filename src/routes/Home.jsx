@@ -3,17 +3,19 @@ import { Link } from "react-router-dom";
 const Home = () => {
   return (
     <>
-      <div className="frontImage" style={{ display: "flex" }}>
+      <div className="frontImage">
         <Link to="/animals">
           <img
+            className="img"
             src={`https://source.unsplash.com/400x400/?fox`}
-            style={{ height: "100vh" }}
+            style={{ height: "auto" }}
           />
         </Link>
         <Link to="/birds">
           <img
+            className="img"
             src={`https://source.unsplash.com/400x400/?parrot`}
-            style={{ height: "100vh" }}
+            style={{ height: "auto" }}
           />
         </Link>
       </div>

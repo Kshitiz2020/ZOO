@@ -9,6 +9,7 @@ const Root = () => {
       <div className="outlet">
         <Outlet />
       </div>
+
       <Footer />
     </div>
   );
