@@ -23,52 +23,45 @@ const App = () => {
     setSearch(e.target.value);
   };
 
-  const removeHandler = (name) => {
-    removeAnimalsHandler(name);
-    removeBirdsHandler(name);
+  const removeHandler = (name, type) => {
+    if (type === "animal") {
+      const updatedArray = animalData.filter((animal) => animal.name !== name);
+      setAnimals(updatedArray);
+    } else {
+      const birdsUpdatedArray = birdList.filter((bird) => bird.name !== name);
+      setBirds(birdsUpdatedArray);
+    }
   };
 
-  const removeAnimalsHandler = (name) => {
-    const updatedArray = animalData.filter((animal) => animal.name !== name);
-    setAnimals(updatedArray);
-  };
-
-  const removeBirdsHandler = (name) => {
-    const birdsUpdatedArray = birdList.filter((bird) => bird.name !== name);
-    setBirds(birdsUpdatedArray);
-  };
-
-  const likesHandler = (name, action) => {
+  const likesHandler = (name, type, action) => {
     // check is it bird or animal and do if statement for each
-    const updatedArray = animalData.map((animal) => {
-      if (animal.name === name) {
-        if (action === "increase") {
-          return { ...animal, likes: animal.likes + 1 };
+    if (type === "animal") {
+      const updatedArray = animalData.map((animal) => {
+        if (animal.name === name) {
+          if (action === "increase") {
+            return { ...animal, likes: animal.likes + 1 };
+          } else {
+            return { ...animal, likes: animal.likes - 1 };
+          }
         } else {
-          return { ...animal, likes: animal.likes - 1 };
+          return animal;
         }
-      } else {
-        return animal;
-      }
-    });
-    setAnimals(updatedArray);
-    //setBirds(updatedArray);
-  };
-
-  const birdsLikesHandler = (name, action) => {
-    // check is it bird or animal and do if statement for each
-    const updatedArray = birdList.map((bird) => {
-      if (bird.name === name) {
-        if (action === "increase") {
-          return { ...bird, likes: bird.likes + 1 };
+      });
+      setAnimals(updatedArray);
+    } else {
+      const updatedArray = birdList.map((bird) => {
+        if (bird.name === name) {
+          if (action === "increase") {
+            return { ...bird, likes: bird.likes + 1 };
+          } else {
+            return { ...bird, likes: bird.likes - 1 };
+          }
         } else {
-          return { ...bird, likes: bird.likes - 1 };
+          return bird;
         }
-      } else {
-        return bird;
-      }
-    });
-    setBirds(updatedArray);
+      });
+      setBirds(updatedArray);
+    }
   };
 
   // Define the router outside the return statement
@@ -97,7 +90,7 @@ const App = () => {
             <Birds
               searchHandler={searchHandler}
               removeHandler={removeHandler}
-              birdsLikesHandler={birdsLikesHandler}
+              likesHandler={likesHandler}
               search={search}
               birdList={birdList}
             />

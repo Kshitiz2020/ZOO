@@ -10,7 +10,12 @@ const Card = ({
       <div className="card-container">
         <div className="card">
           <div className="close">
-            <button className="close-btn" onClick={removeHandler}>
+            <button
+              className="close-btn"
+              onClick={() => {
+                removeHandler();
+              }}
+            >
               <span className="material-symbols-outlined">close</span>
             </button>
           </div>

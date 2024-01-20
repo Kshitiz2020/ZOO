@@ -3,7 +3,7 @@ const Birds = ({
   birdList,
   search,
   removeHandler,
-  birdsLikesHandler,
+  likesHandler,
   searchHandler,
 }) => {
   return (
@@ -27,11 +27,13 @@ const Birds = ({
             <Card
               key={bird.name}
               {...bird}
-              removeHandler={() => removeHandler(bird.name)}
+              removeHandler={() => removeHandler(bird.name, "bird")}
               removeLikesHandler={() =>
-                birdsLikesHandler(bird.name, "decrease")
+                likesHandler(bird.name, "bird", "decrease")
               }
-              addLikesHandler={() => birdsLikesHandler(bird.name, "increase")}
+              addLikesHandler={() =>
+                likesHandler(bird.name, "bird", "increase")
+              }
             />
           ))}
       </div>

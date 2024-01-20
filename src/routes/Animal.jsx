@@ -27,9 +27,13 @@ const Animals = ({
             <Card
               key={animal.name}
               {...animal}
-              removeHandler={() => removeHandler(animal.name)}
-              removeLikesHandler={() => likesHandler(animal.name, "decrease")}
-              addLikesHandler={() => likesHandler(animal.name, "increase")}
+              removeHandler={() => removeHandler(animal.name, "animal")}
+              removeLikesHandler={() =>
+                likesHandler(animal.name, "animal", "decrease")
+              }
+              addLikesHandler={() =>
+                likesHandler(animal.name, "animal", "increase")
+              }
             />
           ))}
       </div>
