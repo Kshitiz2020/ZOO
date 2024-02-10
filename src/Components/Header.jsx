@@ -1,10 +1,13 @@
 import Home from "../routes/Home";
+import Search from "./Search";
 import { NavLink } from "react-router-dom";
 const Header = (props) => {
   return (
     <header>
       <h1>{props.name}</h1>
+
       <div className="navbar">
+        <Search />
         <ul>
           <li>
             <NavLink to="/">Home</NavLink>
