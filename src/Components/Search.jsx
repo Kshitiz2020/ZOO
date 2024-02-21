@@ -13,9 +13,9 @@ function Search() {
   };
 
   return (
-    <div className="searchBar">
+    <div>
       <input
-        className="searchBar"
+        className="searchBox"
         type="text"
         placeholder="Search"
         value={search}

@@ -108,15 +108,6 @@ const App = () => {
   return (
     <>
       <RouterProvider router={router} />
-      {/* <input type="text" placeholder="Search" onChange={searchHandler} />
-        <Header name="Welcome To ZOO" />
-        <main>
-          <div className="reactions"></div>
-          <Card addLikesHandler={likesHandler} />
-        </main>
-        <Footer copy="Thanks for visiting ZOO! Have a Nice Day" /> }
-        <Footer copy={copy} /> */}
-      <Footer copy="Thanks for visiting ZOO! Have a Nice Day" />
     </>
   );
 };
