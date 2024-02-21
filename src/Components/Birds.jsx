@@ -37,16 +37,18 @@ export default function Birds() {
 
   return (
     <>
-      {filteredBirds.map((bird, idx) => (
-        <div key={idx}>
-          <Card
-            {...bird}
-            removeHandler={() => removeHandler(bird.name, "bird")}
-            removeLikesHandler={() => birdLikesHandler(bird.name, "decrease")}
-            addLikesHandler={() => birdLikesHandler(bird.name, "increase")}
-          />
-        </div>
-      ))}
+      <div className="cards-wrapper">
+        {filteredBirds.map((bird, idx) => (
+          <div key={idx}>
+            <Card
+              {...bird}
+              removeHandler={() => removeHandler(bird.name, "bird")}
+              removeLikesHandler={() => birdLikesHandler(bird.name, "decrease")}
+              addLikesHandler={() => birdLikesHandler(bird.name, "increase")}
+            />
+          </div>
+        ))}
+      </div>
     </>
   );
 }

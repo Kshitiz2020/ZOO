@@ -39,7 +39,7 @@ export default function Animals() {
   };
 
   return (
-    <div>
+    <div className="cards-wrapper">
       {filteredAnimals.map((animal, idx) => (
         <div key={idx}>
           <Card

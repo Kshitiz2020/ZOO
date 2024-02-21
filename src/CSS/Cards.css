@@ -1,4 +1,4 @@
-/* #root {
+/* /* #root {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
@@ -88,7 +88,7 @@ img {
 }
  */
 
-* {
+/* {
   margin: 0;
   padding: 0;
 }
@@ -193,7 +193,7 @@ a:hover {
   min-height: 100vh;
 } */
 
-.outlet {
+/*.outlet {
   position: relative;
   top: 80px;
   min-height: 100vh;
@@ -209,3 +209,4 @@ a:hover {
 .aboutPage {
   margin-left: 2rem;
 }
+ */

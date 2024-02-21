@@ -10,7 +10,7 @@ const Root = () => {
         <Outlet />
       </div>
 
-      <Footer />
+      <Footer copy="Thanks for visiting ZOO! Have a Nice Day" />
     </div>
   );
 };
